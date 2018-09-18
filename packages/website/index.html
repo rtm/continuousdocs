@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Continuous Docs -- Automated documentation</title>
+    <link rel="canonical" href="https://continueousdocs.com/">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <meta charset="UTF-8">
+    <meta name="description" content="No-configuration tool for continuous, automated documentation generation">
+    <meta name="author" content="Bob Myers">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.css",">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body class="flex">
+
+    <header>
+      <nav>
+        <button class="sans">
+          <a href="javascript:goto('features')">
+            Features
+          </a>
+        </button>
+
+        <button class="sans">
+          <a href="javascript:goto('notify')">
+            Notify
+          </a>
+        </button>
+      </nav>
+
+      <button class="sans">
+        <a target="_blank" title="The application is coming soon.">
+          App
+        </a>
+      </button>
+    </header>
+
+    <div class="sections">
+
+      <div class="flex sections-container">
+        <div id="top" class="section backdrop">
+          <div class="flex section-content">
+            <div></div>
+            <div>
+              <h1>
+                <code style="color: #D14; ">##</code>
+                <code style="color: #088; ">continuous</code>
+                <code style="color: #008; ">docs</code>
+              </h1>
+
+              <p class="subtitle" >
+                Continuous documentation for your mission-critical systems
+              </p>
+
+              <p>
+                We intelligently identify, extract, compile, and format documentation materials
+                in a huge variety of formats from your source tree,
+                turning it into a single, up-to-date source of truth.
+              </p>
+
+            </div>
+
+            <div></div>
+
+            <footer>
+              <button class="sans">
+                <a href="javascript:goto('features')">
+                  &#x2193; Features
+                </a>
+              </button>
+            </footer>
+          </div>
+        </div>
+
+        <div id="features" class="section backdrop">
+          <div class="section-content">
+
+            <h1>Features</h1>
+
+            <div class="list">
+
+              <div class="feature">
+                <h3>No configuration</h3>
+                <p>
+                  We generate full documentation for your project with no configuration.
+                  Just connect it to your repository and specify where the output should go,
+                  in what format.
+                </p>
+              </div>
+
+              <div class="feature">
+                <h3>Rich input format support</h3>
+                <p>
+                  We support almost all the formats you already use,
+                  including code-based systems like JavaDoc and JsDoc,
+                  API systems including Swagger/OpenAPI,
+                  and Markdown and many other markup languages.
+                </p>
+              </div>
+
+              <div class="feature">
+                <h3>Confidentiality</h3>
+                <p>
+                  We fully protect your IP.
+                  Not one byte of your codebase is ever stored on our servers.
+                </p>
+              </div>
+
+              <div class="feature">
+                <h3>Full semantic search</h3>
+                <p>
+                  We provide lightning-fast search for the entire document set.
+                </p>
+              </div>
+
+            </div>
+
+            <footer>
+              <button class="sans">
+                <a href="javascript:goto('notify')">
+                  &#x2193; Notify me
+                </a>
+              </button>
+            </footer>
+          </div>
+        </div>
+
+        <div id="notify" class="section backdrop">
+          <div class="section-content">
+            <h1>Notify me</h1>
+            <div class="flex">
+              <p>Yes! I'm interested! Please notify me when Continuous Docs is available.</p>
+              <input id="email" type="email" class="sans" placeholder="e-mail address" style="font-size: large; width: 69%; padding: 2px 6px; " required>
+              <button
+                  class="g-recaptcha sans"
+                  data-sitekey="6LcIinAUAAAAADBQhw8GYMTt9EllTI4ojZKYcbrv"
+                  data-callback='addBetaUser'
+                  style="margin-left: 0; padding-left: 0; text-align: left; margin-top: 18px; ">
+                Submit
+              </button>
+              <p class="hide">Thank you!</p>
+            </div>
+            <div style="flex: auto; "></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer style="color: #fffff8; " class="sans">
+      <div>
+        &copy;2018 Continuous Docs
+      </div>
+      <button>
+        <a href="privacy" target="_blank">
+          Privacy
+        </a>
+      </button>
+    </footer>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-firestore.js"></script>
+    <script>
+     firebase.initializeApp({
+       apiKey: "AIzaSyAE_ER1UWmCshQK9o0dD1_-jX2sRm4MF5w",
+       projectId: "continuous-docs",
+     }); console.log(firebase);
+     var db = firebase.firestore();
+
+     function addBetaUser() {
+       const user = document.getElementById('email').value.trim();
+       if (!user) return;
+       db.collection("betaUsers").add({user, time: +new Date()})
+         .then(() => {
+           (function toggle() { getElementById('thanks').classList.toggle('hide'); }());
+           setTimeout(toggle, 2000);
+         });
+     }
+
+     function goto(id) {
+       document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'start'});
+     }
+    </script>
+
+    <!-- Cookie Consent by https://PrivacyPolicies.com -->
+    <!-- <script type="text/javascript" src="//PrivacyPolicies.com/cookie-consent/releases/2.0.0/cookie-consent.js"></script>
+         <script type="text/javascript">
+         document.addEventListener('DOMContentLoaded', function () {
+         cookieconsent.run({"notice_banner_type":"simple","consent_type":"implied","palette":"light","website_name":"continuousdocs.com"});
+         });
+         </script> -->
+
+  </body>
+
+</html>

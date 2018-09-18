@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  border-left: 1px solid rgba(127, 127, 127, 0.5);
+  border-right: 1px solid rgba(127, 127, 127, 0.5);
+  color: #1f1f1f;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+  max-width: 800px;
+  /* overflow: auto; */
+  padding: 0;
+  width: 100%;
+}
+
+.sections {
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+}
+
+article {
+  padding: 0;
+  overflow-x: hidden;
+  margin: 0;
+  overflow-y: auto;
+  position: relative;
+  height: calc(100vh - 120px);
+}
+
+.sections-container {
+}
+
+.section {
+  /* min-height: calc(100vh - 120px); */
+  scroll-snap-align: start;
+}
+
+.section-content {
+  margin-left: 24px;
+  margin-right: 24px;
+  min-height: calc(100vh - 120px);
+}
+
+h1 { margin-top: 2rem; }
+h2 { margin-top 1.5rem; }
+h3 { margin-top: 1rem; }
+
+section > :header { flex: 0 0; }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section > footer::before {
+  content: '';
+  display: block;
+  height: 12px;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* make each section occupy one page. */
+section {
+  padding: 0;
+}
+
+code { font-family: 'Anonymous Pro', Consolas, Courier, monospace; }
+
+button {
+  color: #555;
+  font-size: 20px;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  outline: 0;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  background-color: transparent;
+  border-style: none;
+}
+
+a {
+  text-decoration: none !important;
+  text-shadow: none !important;
+  background: unset !important;
+}
+
+button:hover {
+  background-color: #fffff0;
+  color: #333;
+}
+
+button a:active, .button a:focus, .button a:hover {
+  color: #333;
+}
+
+.row::after {
+  display: block;
+  content: '';
+}
+
+#body {
+  height: 100vh;
+}
+
+body > header, body > footer {
+  background-color: #555;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body > header button {
+  color: #b8b8b8;
+}
+
+#body > header button:hover {
+  color: #a8a8a8;
+  background-color: #484848;
+}
+
+.title {
+  text-align: center;
+  font-size: 48px;
+}
+
+..subtitle { }
+
+.feature {
+  padding: 5px 5px;
+  border-radius: 2px;
+  max-width: 240px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  flex: initial;
+}
+
+.feature p {
+  line-height: 1.5;
+}
+
+.feature p { font-size: 1.1rem; }
+
+.image {
+  display: block;
+  margin: 1em auto;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.image img {
+  display: block;
+  margin: 0.5em auto;
+}
+
+/* Features section. */
+.feature {
+  margin: 12px;
+  box-shadow: 2px 2px 5px 0px rgba(136,136,136,1);
+  padding-left: 12px;
+  padding-right: 12px;
+  max-width: 300px;
+  background: #fefef4;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+#top::after { background-image: url(./images/eugenio-mazzone-190204-unsplash.jpg); }
+#top code { font-size: 3rem; }
+#top p { width: 75%; }
+
+#top > .flex { justify-content: space-between; }
+
+#notify { position: relative; }
+#notify::after { opacity: 0.3; }
+
+.backdrop { position: relative; }
+
+.backdrop::after {
+  content: '';
+  opacity: 0.1;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#notify::after {
+  background-image: url(./images/apartment-architecture-blur-735319.jpg);
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb { background: #FF0000; }
+
+header, footer {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  /* width: 100% !important; */
+}
+
+#body > header, #body > footer {
+  /* justify-content: center; */
+}
+
+#body > header {
+  justify-content: space-between;
+}
+
+#body > footer {
+  justify-content: space-between;
+}
+
+.hide { visibility: hidden; }
+
+.grecaptcha-badge {
+  width:0 !important;
+}
