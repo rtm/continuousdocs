@@ -180,7 +180,7 @@ body > header button {
   overflow-y: auto;
 }
 
-#top::after { background-image: url(./images/eugenio-mazzone-190204-unsplash.jpg); }
+/* #top::after { background-image: url(./images/eugenio-mazzone-190204-unsplash.jpg); } */
 #top code { font-size: 3rem; }
 #top p { width: 75%; }
 
@@ -204,7 +204,7 @@ body > header button {
 }
 
 #notify::after {
-  background-image: url(./images/apartment-architecture-blur-735319.jpg);
+  /* background-image: url(./images/apartment-architecture-blur-735319.jpg); */
 }
 
 ::-webkit-scrollbar {
