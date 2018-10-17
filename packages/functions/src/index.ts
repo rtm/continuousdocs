@@ -1,5 +1,5 @@
 import * as functions from "firebase-functions";
-import * as admin from "fireabse-admin';
+import * as admin from "firebase-admin";
 
 import {handler} from "./github-webhook-handler";
 
